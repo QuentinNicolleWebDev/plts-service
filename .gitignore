@@ -10,3 +10,6 @@ Thumbs.db
 
 # Dépendances éventuelles
 node_modules/
+
+# Captures de travail
+balise.png
