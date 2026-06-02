@@ -1,0 +1,12 @@
+# Fichiers temporaires FUSE / système
+.fuse_hidden*
+.DS_Store
+Thumbs.db
+
+# Éditeurs
+.vscode/
+.idea/
+*.swp
+
+# Dépendances éventuelles
+node_modules/

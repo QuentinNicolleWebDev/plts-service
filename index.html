@@ -1,0 +1,1393 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PLTS Service — Plombier à Cabourg | Dépannage 7j/7 Côte Fleurie</title>
+<meta name="description" content="Plomberie, sanitaires et dépannage urgent à Cabourg et sur la Côte Fleurie. Artisan local, devis gratuit, intervention rapide 7j/7 — résidences principales et secondaires." />
+<link rel="icon" type="image/png" href="images/logo-plts.png" />
+<link rel="apple-touch-icon" href="images/logo-plts.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Source+Serif+4:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a2540;
+    --navy-dark: #06182b;
+    --navy-soft: #1a3a5f;
+    --steel: #4a5a6e;
+    --slate: #6b7888;
+    --line: #d8dde4;
+    --line-soft: #e8ecf1;
+    --bg: #ffffff;
+    --bg-alt: #f5f7fa;
+    --bg-tint: #eef2f7;
+    --orange: #e67e22;
+    --orange-dark: #c8651a;
+    --green: #1e8449;
+    --text: #1a2332;
+    --text-soft: #4a5568;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-weight: 400;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  ::selection { background: var(--navy); color: white; }
+  h1, h2, h3, h4 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--navy);
+    line-height: 1.2;
+  }
+  a { text-decoration: none; color: inherit; }
+  .container { max-width: 1240px; margin: 0 auto; padding: 0 1.5rem; }
+  .micro {
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--orange);
+  }
+
+  /* TOPBAR */
+  .topbar { background: var(--navy-dark); color: rgba(255,255,255,0.85); font-size: 0.82rem; padding: 0.6rem 0; }
+  .topbar-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; }
+  .topbar-left { display: flex; align-items: center; gap: 0.5rem; }
+  .topbar-left .dot { width: 8px; height: 8px; background: #2ecc71; border-radius: 50%; box-shadow: 0 0 0 3px rgba(46,204,113,0.2); animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100% { box-shadow: 0 0 0 3px rgba(46,204,113,0.2); } 50% { box-shadow: 0 0 0 8px rgba(46,204,113,0); } }
+  .topbar-right { display: flex; gap: 1.5rem; align-items: center; }
+  .topbar-right a { color: white; display: inline-flex; align-items: center; gap: 0.4rem; transition: color 0.2s; }
+  .topbar-right a:hover { color: var(--orange); }
+  .topbar-right svg { width: 14px; height: 14px; }
+
+  /* HEADER */
+  header { background: white; border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 100; transition: box-shadow 0.3s; }
+  header.scrolled { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  .nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; }
+  .logo { display: flex; align-items: center; gap: 0.8rem; }
+  .logo-img { height: 52px; width: auto; display: block; }
+  .logo-img-footer { height: 56px; filter: brightness(1.05); }
+  .logo-text { display: flex; flex-direction: column; line-height: 1.1; }
+  .logo-text .name { font-family: 'Source Serif 4', serif; font-weight: 700; font-size: 1.3rem; color: var(--navy); }
+  .logo-text .sub { font-size: 0.72rem; color: var(--slate); letter-spacing: 0.05em; text-transform: uppercase; font-weight: 500; }
+  .nav-links { display: flex; align-items: center; gap: 0.3rem; list-style: none; }
+  .nav-links a:not(.btn) { padding: 0.6rem 1rem; color: var(--text); font-weight: 500; font-size: 0.92rem; border-radius: 4px; transition: all 0.2s; }
+  .nav-links a:not(.btn):hover { color: var(--navy); background: var(--bg-tint); }
+
+  .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 1.4rem; font-family: inherit; font-weight: 600; font-size: 0.92rem; border-radius: 4px; cursor: pointer; border: 2px solid transparent; transition: all 0.2s; text-decoration: none; }
+  .btn-primary { background: var(--orange); color: white; border-color: var(--orange); }
+  .btn-primary:hover { background: var(--orange-dark); border-color: var(--orange-dark); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(230,126,34,0.3); }
+  .btn-secondary { background: var(--navy); color: white; border-color: var(--navy); }
+  .btn-secondary:hover { background: var(--navy-dark); border-color: var(--navy-dark); }
+  .btn-outline { background: white; color: var(--navy); border-color: var(--navy); }
+  .btn-outline:hover { background: var(--navy); color: white; }
+  .btn svg { width: 16px; height: 16px; }
+  .burger { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; }
+
+  /* HERO */
+  .hero { background: linear-gradient(180deg, var(--bg-alt) 0%, white 100%); padding: 4rem 0 5rem; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: 0; right: 0; width: 50%; height: 100%; background-image: linear-gradient(var(--line-soft) 1px, transparent 1px), linear-gradient(90deg, var(--line-soft) 1px, transparent 1px); background-size: 40px 40px; opacity: 0.5; pointer-events: none; -webkit-mask-image: linear-gradient(to left, black, transparent); mask-image: linear-gradient(to left, black, transparent); }
+  .hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 4rem; align-items: center; position: relative; }
+  .hero-eyebrow { display: inline-flex; align-items: center; gap: 0.6rem; background: rgba(230,126,34,0.1); color: var(--orange-dark); padding: 0.5rem 0.9rem; border-radius: 50px; font-size: 0.78rem; font-weight: 600; margin-bottom: 1.5rem; }
+  .hero-eyebrow .dot { width: 7px; height: 7px; background: var(--orange); border-radius: 50%; }
+  h1 { font-size: clamp(2.2rem, 4.5vw, 3.5rem); line-height: 1.1; margin-bottom: 1.3rem; letter-spacing: -0.02em; }
+  h1 span { color: var(--orange); }
+  .hero-lede { font-size: 1.1rem; color: var(--text-soft); max-width: 540px; margin-bottom: 2rem; line-height: 1.65; }
+  .hero-actions { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+  .hero-trust { display: flex; gap: 2rem; flex-wrap: wrap; padding-top: 2rem; border-top: 1px solid var(--line); }
+  .hero-trust-item { display: flex; align-items: center; gap: 0.7rem; }
+  .hero-trust-icon { width: 36px; height: 36px; background: var(--bg-tint); border-radius: 6px; display: flex; align-items: center; justify-content: center; color: var(--navy); flex-shrink: 0; }
+  .hero-trust-icon svg { width: 18px; height: 18px; }
+  .hero-trust-text { display: flex; flex-direction: column; line-height: 1.2; }
+  .hero-trust-text strong { font-size: 0.9rem; color: var(--navy); }
+  .hero-trust-text span { font-size: 0.78rem; color: var(--slate); }
+
+  .hero-visual { position: relative; }
+  .hero-image { aspect-ratio: 4/5; background-image: url('images/hero-salle-de-bain.jpg'); background-size: cover; background-position: center; border-radius: 8px; box-shadow: 0 20px 50px -20px rgba(10,37,64,0.3); }
+  .hero-card { position: absolute; bottom: 1.5rem; left: -1.5rem; background: white; padding: 1.2rem 1.4rem; border-radius: 8px; box-shadow: 0 10px 30px -5px rgba(10,37,64,0.2); display: flex; align-items: center; gap: 1rem; border: 1px solid var(--line); }
+  .hero-card-icon { width: 48px; height: 48px; background: var(--green); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .hero-card-text strong { display: block; color: var(--navy); font-size: 0.95rem; }
+  .hero-card-text span { font-size: 0.8rem; color: var(--slate); }
+  .hero-card-top { position: absolute; top: 1.5rem; right: -1rem; background: var(--navy); color: white; padding: 1rem 1.2rem; border-radius: 8px; text-align: center; box-shadow: 0 10px 30px -5px rgba(10,37,64,0.4); }
+  .hero-card-top .num { font-family: 'Source Serif 4', serif; font-size: 2rem; font-weight: 700; line-height: 1; color: white; }
+  .hero-card-top .lbl { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 0.3rem; opacity: 0.85; }
+
+  /* TRUST BAR */
+  .trust-bar { background: var(--navy); color: white; padding: 2rem 0; }
+  .trust-bar-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; text-align: center; }
+  .trust-bar-item { border-right: 1px solid rgba(255,255,255,0.15); padding: 0 1rem; }
+  .trust-bar-item:last-child { border-right: none; }
+  .trust-bar-item .num { font-family: 'Source Serif 4', serif; font-size: 2.4rem; font-weight: 700; color: var(--orange); line-height: 1; display: block; }
+  .trust-bar-item .lbl { margin-top: 0.5rem; font-size: 0.85rem; color: rgba(255,255,255,0.85); letter-spacing: 0.03em; }
+
+  /* SECTIONS */
+  section { padding: 5rem 0; }
+  .section-head { text-align: center; max-width: 700px; margin: 0 auto 3.5rem; }
+  .section-head .micro { display: inline-block; margin-bottom: 1rem; }
+  .section-head h2 { font-size: clamp(1.9rem, 3.5vw, 2.6rem); margin-bottom: 1rem; }
+  .section-head p { color: var(--text-soft); font-size: 1.05rem; line-height: 1.65; }
+
+  /* SERVICES */
+  .services { background: var(--bg-alt); }
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .service-card { background: white; border: 1px solid var(--line); border-radius: 8px; padding: 2rem 1.8rem; transition: all 0.3s; position: relative; overflow: hidden; }
+  .service-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: var(--orange); transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
+  .service-card:hover { border-color: var(--navy); box-shadow: 0 12px 30px -10px rgba(10,37,64,0.15); transform: translateY(-2px); }
+  .service-card:hover::before { transform: scaleX(1); }
+  .service-icon { width: 52px; height: 52px; background: var(--bg-tint); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--navy); margin-bottom: 1.2rem; transition: all 0.3s; }
+  .service-card:hover .service-icon { background: var(--navy); color: white; }
+  .service-icon svg { width: 26px; height: 26px; }
+  .service-card h3 { font-size: 1.25rem; margin-bottom: 0.7rem; }
+  .service-card p { color: var(--text-soft); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.2rem; }
+  .service-card .check-list { list-style: none; border-top: 1px solid var(--line-soft); padding-top: 1rem; }
+  .service-card .check-list li { display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; color: var(--text-soft); padding: 0.25rem 0; }
+  .service-card .check-list svg { width: 14px; height: 14px; color: var(--green); flex-shrink: 0; }
+
+  /* ABOUT */
+  .about { background: white; }
+  .about-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 4rem; align-items: center; }
+  .about-visual { position: relative; }
+  .about-image { aspect-ratio: 4/5; background-image: url('images/chantier-salle-de-bain.jpg'); background-size: cover; background-position: center; border-radius: 8px; position: relative; z-index: 1; }
+  .about-image-tag { position: absolute; top: 1rem; left: 1rem; background: rgba(255,255,255,0.95); padding: 0.5rem 0.9rem; border-radius: 6px; font-size: 0.75rem; font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 0.4rem; backdrop-filter: blur(10px); z-index: 2; }
+  .about-image-tag svg { width: 14px; height: 14px; color: var(--orange); }
+  .about-image-deco { position: absolute; inset: 1.5rem -1.5rem -1.5rem 1.5rem; background: var(--navy); border-radius: 8px; }
+  .about-content h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); margin-bottom: 1.3rem; }
+  .about-content > p { color: var(--text-soft); margin-bottom: 1rem; font-size: 1rem; line-height: 1.7; }
+  .commitments { margin-top: 2rem; display: grid; gap: 1rem; }
+  .commitment { display: flex; gap: 1rem; padding: 1.1rem; background: var(--bg-alt); border-left: 3px solid var(--orange); border-radius: 4px; }
+  .commitment-icon { width: 38px; height: 38px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--navy); flex-shrink: 0; }
+  .commitment-icon svg { width: 18px; height: 18px; }
+  .commitment h4 { font-family: 'DM Sans', sans-serif; font-size: 0.98rem; margin-bottom: 0.2rem; color: var(--navy); }
+  .commitment p { font-size: 0.88rem; color: var(--text-soft); line-height: 1.5; }
+
+  /* RÉALISATIONS — galerie multi-chantiers avec onglets */
+  .realisations { background: white; }
+  .realisations-intro { max-width: 720px; margin: 0 auto 2.5rem; text-align: center; }
+
+  /* Onglets de sélection chantier */
+  .ba-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+  .ba-tab {
+    background: var(--bg-alt);
+    border: 1px solid var(--line);
+    color: var(--text);
+    padding: 0.7rem 1.3rem;
+    border-radius: 50px;
+    font-family: inherit;
+    font-size: 0.88rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s;
+  }
+  .ba-tab:hover {
+    background: white;
+    border-color: var(--navy);
+    color: var(--navy);
+  }
+  .ba-tab.active {
+    background: var(--navy);
+    color: white;
+    border-color: var(--navy);
+    box-shadow: 0 4px 12px rgba(10,37,64,0.2);
+  }
+  .ba-tab svg { width: 14px; height: 14px; }
+
+  /* Carte avant/après */
+  .ba-card {
+    background: var(--bg-alt);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px -12px rgba(10,37,64,0.12);
+    display: none;
+  }
+  .ba-card.active { display: block; animation: fadeInUp 0.4s ease; }
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .ba-card-header {
+    padding: 1.5rem 2rem;
+    background: var(--navy);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .ba-card-header h3 {
+    color: white;
+    font-size: 1.25rem;
+    margin: 0;
+    font-family: 'Source Serif 4', serif;
+  }
+  .ba-card-header p {
+    color: rgba(255,255,255,0.8);
+    font-size: 0.88rem;
+    margin: 0.25rem 0 0;
+  }
+  .ba-card-header .ba-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: var(--orange);
+    color: white;
+    padding: 0.35rem 0.8rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .ba-pill svg { width: 12px; height: 12px; }
+
+  .ba-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    background: white;
+    position: relative;
+  }
+  .ba-side {
+    position: relative;
+    aspect-ratio: 4/5;
+    overflow: hidden;
+    background: #f0f0f0;
+  }
+  .ba-side img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+  }
+  .ba-side:hover img { transform: scale(1.03); }
+  .ba-label {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    padding: 0.4rem 0.9rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    backdrop-filter: blur(10px);
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .ba-label-before { background: rgba(74, 90, 110, 0.92); color: white; }
+  .ba-label-after { background: rgba(30, 132, 73, 0.92); color: white; }
+  .ba-label svg { width: 12px; height: 12px; }
+
+  .ba-divider {
+    position: absolute;
+    top: 0; bottom: 0;
+    left: 50%;
+    width: 2px;
+    background: white;
+    z-index: 3;
+    transform: translateX(-50%);
+    pointer-events: none;
+  }
+  .ba-arrow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 56px;
+    height: 56px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(10,37,64,0.25);
+    z-index: 4;
+    color: var(--navy);
+  }
+  .ba-arrow svg { width: 24px; height: 24px; }
+
+  .ba-card-footer {
+    padding: 1.5rem 2rem;
+    background: white;
+    border-top: 1px solid var(--line-soft);
+  }
+  .ba-features {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+  .ba-feature {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--text-soft);
+  }
+  .ba-feature svg {
+    width: 16px;
+    height: 16px;
+    color: var(--green);
+    flex-shrink: 0;
+  }
+  .ba-feature strong {
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  .ba-counter {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.88rem;
+    color: var(--text-soft);
+  }
+  .ba-counter strong { color: var(--navy); }
+
+  @media (max-width: 768px) {
+    .ba-grid { grid-template-columns: 1fr; }
+    .ba-side { aspect-ratio: 4/3; }
+    .ba-divider { display: none; }
+    .ba-arrow {
+      top: auto;
+      bottom: -28px;
+      left: 50%;
+      transform: translateX(-50%) rotate(90deg);
+    }
+    .ba-features { grid-template-columns: 1fr 1fr; gap: 0.7rem; }
+    .ba-card-header { padding: 1.2rem 1.5rem; }
+    .ba-card-footer { padding: 1.2rem 1.5rem; }
+    .ba-tab { font-size: 0.82rem; padding: 0.55rem 1rem; }
+  }
+  .zone { background: var(--bg-alt); }
+  .zone-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 3rem; align-items: start; }
+  .zone-text h3 { font-size: 1.2rem; margin-bottom: 1rem; font-family: 'DM Sans',sans-serif; }
+  .zone-cities { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 1rem; background: white; padding: 1.5rem; border-radius: 8px; border: 1px solid var(--line); list-style: none; }
+  .zone-cities li { padding: 0.55rem 0; border-bottom: 1px solid var(--line-soft); font-size: 0.92rem; color: var(--text); display: flex; align-items: center; gap: 0.5rem; }
+  .zone-cities li svg { width: 14px; height: 14px; color: var(--orange); flex-shrink: 0; }
+  .zone-cities li.main { font-weight: 600; color: var(--navy); }
+  .zone-map-wrap { background: white; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; aspect-ratio: 4/3; position: relative; }
+  .zone-map-wrap iframe { width: 100%; height: 100%; border: 0; filter: grayscale(15%); }
+  .zone-map-overlay { position: absolute; bottom: 1rem; left: 1rem; background: white; padding: 0.8rem 1rem; border-radius: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); display: flex; align-items: center; gap: 0.6rem; border-left: 3px solid var(--orange); font-size: 0.85rem; }
+  .zone-map-overlay strong { color: var(--navy); display: block; }
+  .zone-map-overlay span { font-size: 0.78rem; color: var(--slate); }
+
+  /* PROCESS */
+  .process { background: white; }
+  .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; position: relative; }
+  .process-step { position: relative; padding: 2rem 1.2rem; text-align: center; background: var(--bg-alt); border-radius: 8px; border: 1px solid var(--line); }
+  .process-num { width: 44px; height: 44px; background: var(--navy); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Source Serif 4', serif; font-weight: 700; font-size: 1.1rem; margin: 0 auto 1.2rem; }
+  .process-step h4 { font-family: 'DM Sans', sans-serif; font-size: 1rem; margin-bottom: 0.5rem; color: var(--navy); }
+  .process-step p { font-size: 0.88rem; color: var(--text-soft); line-height: 1.55; }
+
+  /* TESTIMONIALS — preuve sociale Google */
+  .testimonials { background: var(--bg-alt); }
+  .reviews-hero { background: white; border: 1px solid var(--line); border-radius: 12px; padding: 3rem 2.5rem; display: grid; grid-template-columns: 1fr 1.3fr; gap: 3rem; align-items: center; box-shadow: 0 8px 30px -10px rgba(10,37,64,0.08); }
+  .reviews-score { text-align: center; padding: 2rem 1.5rem; background: linear-gradient(135deg, #f8f9fb 0%, #eef2f7 100%); border-radius: 10px; border: 1px solid var(--line); }
+  .reviews-google-badge { display: inline-flex; align-items: center; gap: 0.4rem; background: white; padding: 0.4rem 0.8rem; border-radius: 50px; border: 1px solid var(--line); font-size: 0.78rem; font-weight: 600; color: var(--text); margin-bottom: 1.2rem; }
+  .reviews-google-badge svg { width: 14px; height: 14px; }
+  .reviews-big-number { font-family: 'Source Serif 4', serif; font-size: 4.5rem; font-weight: 700; color: var(--navy); line-height: 1; margin-bottom: 0.4rem; }
+  .reviews-stars-big { color: #f5b301; font-size: 1.6rem; letter-spacing: 0.15em; margin-bottom: 0.8rem; }
+  .reviews-count { font-size: 0.95rem; color: var(--text-soft); margin-bottom: 1.5rem; }
+  .reviews-count strong { color: var(--navy); }
+  .reviews-cta-google { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--navy); color: white; padding: 0.7rem 1.2rem; border-radius: 6px; font-size: 0.88rem; font-weight: 600; transition: all 0.2s; }
+  .reviews-cta-google:hover { background: var(--navy-dark); transform: translateY(-1px); color: white; }
+  .reviews-cta-google svg { width: 14px; height: 14px; }
+  .reviews-side h3 { font-size: 1.6rem; margin-bottom: 1rem; line-height: 1.25; }
+  .reviews-side > p { color: var(--text-soft); line-height: 1.7; margin-bottom: 1.5rem; }
+  .reviews-points { display: grid; gap: 0.9rem; }
+  .reviews-point { display: flex; align-items: flex-start; gap: 0.7rem; }
+  .reviews-point svg { width: 20px; height: 20px; color: var(--green); flex-shrink: 0; margin-top: 2px; }
+  .reviews-point strong { color: var(--navy); display: block; margin-bottom: 0.15rem; font-size: 0.95rem; }
+  .reviews-point span { color: var(--text-soft); font-size: 0.88rem; line-height: 1.5; }
+
+  /* Cartes témoignages individuels */
+  .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .testimonial { background: white; padding: 2rem 1.8rem; border-radius: 8px; border: 1px solid var(--line); position: relative; display: flex; flex-direction: column; }
+  .testimonial::before { content: '"'; position: absolute; top: 1rem; right: 1.5rem; font-family: 'Source Serif 4', serif; font-size: 4rem; line-height: 1; color: var(--line); font-weight: 700; }
+  .testimonial-featured { border-color: var(--orange); border-width: 2px; box-shadow: 0 8px 24px -10px rgba(230,126,34,0.25); }
+  .testimonial-featured::after { content: 'INTERVENTION URGENTE'; position: absolute; top: -10px; left: 1.5rem; background: var(--orange); color: white; padding: 0.25rem 0.7rem; border-radius: 4px; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.08em; }
+  .testimonial-stars { color: #f5b301; font-size: 1.05rem; letter-spacing: 0.1em; margin-bottom: 1rem; position: relative; z-index: 1; }
+  .testimonial-text { color: var(--text); font-size: 0.95rem; line-height: 1.65; margin-bottom: 1.5rem; flex-grow: 1; position: relative; z-index: 1; }
+  .testimonial-author { display: flex; align-items: center; gap: 0.8rem; padding-top: 1.2rem; border-top: 1px solid var(--line-soft); }
+  .author-avatar { width: 42px; height: 42px; background: var(--navy); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 1rem; flex-shrink: 0; font-family: 'Source Serif 4', serif; }
+  .testimonial-featured .author-avatar { background: var(--orange); }
+  .testimonial-author strong { display: block; color: var(--navy); font-size: 0.95rem; }
+  .testimonial-author span { font-size: 0.8rem; color: var(--slate); }
+
+  @media (max-width: 960px) {
+    .reviews-hero { grid-template-columns: 1fr; padding: 2rem 1.5rem; gap: 2rem; }
+    .reviews-big-number { font-size: 3.5rem; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+  }
+
+  /* CTA BANNER */
+  .cta-banner { background: var(--navy); color: white; padding: 3.5rem 0; background-image: linear-gradient(135deg, var(--navy) 0%, var(--navy-soft) 100%); position: relative; overflow: hidden; }
+  .cta-banner::before { content: ''; position: absolute; top: -50%; right: -10%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(230,126,34,0.15) 0%, transparent 70%); pointer-events: none; }
+  .cta-banner-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 2rem; align-items: center; position: relative; }
+  .cta-banner h2 { color: white; font-size: clamp(1.6rem, 2.8vw, 2.2rem); margin-bottom: 0.6rem; }
+  .cta-banner p { color: rgba(255,255,255,0.85); font-size: 1rem; }
+  .cta-banner-actions { display: flex; gap: 0.8rem; flex-wrap: wrap; justify-content: flex-end; }
+  .cta-banner-actions .btn-outline { background: transparent; border-color: white; color: white; }
+  .cta-banner-actions .btn-outline:hover { background: white; color: var(--navy); }
+
+  /* CONTACT */
+  .contact { background: white; }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 3rem; align-items: start; }
+  .contact-info { background: var(--navy); color: white; padding: 2.5rem; border-radius: 8px; position: sticky; top: 100px; }
+  .contact-info h3 { color: white; font-size: 1.4rem; margin-bottom: 0.5rem; }
+  .contact-info > p { color: rgba(255,255,255,0.8); font-size: 0.95rem; margin-bottom: 2rem; }
+  .contact-block { display: flex; gap: 1rem; padding: 1.2rem 0; border-bottom: 1px solid rgba(255,255,255,0.12); }
+  .contact-block:last-of-type { border-bottom: none; }
+  .contact-icon { width: 40px; height: 40px; background: rgba(255,255,255,0.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .contact-icon svg { width: 18px; height: 18px; color: var(--orange); }
+  .contact-block .lbl { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--orange); font-weight: 600; margin-bottom: 0.2rem; display:block; }
+  .contact-block a, .contact-block .val { color: white; font-size: 0.98rem; line-height: 1.4; }
+  .contact-block a:hover { color: var(--orange); }
+  .contact-block .phone { font-family: 'Source Serif 4', serif; font-size: 1.4rem; font-weight: 700; }
+  .contact-urgent { margin-top: 2rem; padding: 1.2rem; background: var(--orange); border-radius: 6px; text-align: center; }
+  .contact-urgent strong { display: block; font-size: 1rem; margin-bottom: 0.3rem; }
+  .contact-urgent span { font-size: 0.85rem; opacity: 0.95; }
+
+  /* FORM */
+  .form-card { background: white; border: 1px solid var(--line); border-radius: 8px; padding: 2.5rem; box-shadow: 0 4px 20px rgba(10,37,64,0.05); }
+  .form-card-head { margin-bottom: 1.8rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--line-soft); }
+  .form-card-head h3 { font-size: 1.4rem; margin-bottom: 0.4rem; }
+  .form-card-head p { color: var(--text-soft); font-size: 0.92rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-field { margin-bottom: 1.1rem; }
+  .form-field label { display: block; font-size: 0.82rem; font-weight: 500; color: var(--navy); margin-bottom: 0.4rem; }
+  .form-field label .req { color: var(--orange); }
+  .form-field input, .form-field select, .form-field textarea { width: 100%; padding: 0.75rem 0.9rem; background: var(--bg-alt); border: 1px solid var(--line); border-radius: 4px; font-family: inherit; font-size: 0.95rem; color: var(--text); transition: all 0.2s; }
+  .form-field input:focus, .form-field select:focus, .form-field textarea:focus { outline: none; border-color: var(--navy); background: white; box-shadow: 0 0 0 3px rgba(10,37,64,0.08); }
+  .form-field textarea { resize: vertical; min-height: 110px; }
+  .form-submit { width: 100%; margin-top: 0.5rem; padding: 1rem; justify-content: center; font-size: 0.98rem; }
+  .form-rgpd { margin-top: 1rem; font-size: 0.78rem; color: var(--slate); text-align: center; line-height: 1.5; }
+  .form-success { display: none; text-align: center; padding: 3rem 1rem; }
+  .form-success.active { display: block; }
+  .form-success-icon { width: 64px; height: 64px; background: var(--green); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.2rem; }
+  .form-success-icon svg { width: 32px; height: 32px; }
+  .form-success h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+  .form-success p { color: var(--text-soft); }
+
+  /* FOOTER */
+  footer { background: var(--navy-dark); color: rgba(255,255,255,0.7); padding: 3.5rem 0 0; }
+  .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 2.5rem; padding-bottom: 2.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+  .footer-brand .logo .logo-text .name { color: white; }
+  .footer-brand .logo .logo-text .sub { color: rgba(255,255,255,0.6); }
+  .footer-brand p { margin-top: 1rem; font-size: 0.9rem; line-height: 1.65; max-width: 320px; }
+  .footer-socials { display: flex; gap: 0.6rem; margin-top: 1.2rem; }
+  .footer-socials a { width: 38px; height: 38px; background: rgba(255,255,255,0.06); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; transition: all 0.2s; }
+  .footer-socials a:hover { background: var(--orange); transform: translateY(-2px); }
+  .footer-socials svg { width: 18px; height: 18px; }
+  .footer-col h4 { font-family: 'DM Sans', sans-serif; color: white; font-size: 1rem; margin-bottom: 1.2rem; }
+  .footer-col ul { list-style: none; }
+  .footer-col li { padding: 0.35rem 0; font-size: 0.9rem; }
+  .footer-col a { color: rgba(255,255,255,0.7); transition: color 0.2s; }
+  .footer-col a:hover { color: var(--orange); }
+  .footer-bottom { padding: 1.5rem 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: 0.82rem; color: rgba(255,255,255,0.5); }
+  .footer-bottom-links a { color: rgba(255,255,255,0.6); margin-left: 1.2rem; }
+  .footer-bottom-links a:hover { color: white; }
+
+  /* FLOATING PHONE */
+  .floating-phone { display: none; position: fixed; bottom: 1.2rem; right: 1.2rem; width: 58px; height: 58px; background: var(--orange); color: white; border-radius: 50%; align-items: center; justify-content: center; box-shadow: 0 6px 20px rgba(230,126,34,0.5); z-index: 99; animation: bounce 2.5s infinite; }
+  @keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+
+  /* RESPONSIVE */
+  @media (max-width: 960px) {
+    .hero-grid, .about-grid, .zone-grid, .cta-banner-grid, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .services-grid, .testimonials-grid, .process-grid, .trust-bar-grid { grid-template-columns: 1fr 1fr; }
+    .nav-links { display: none; }
+    .burger { display: block; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .cta-banner-actions { justify-content: flex-start; }
+    .floating-phone { display: flex; }
+    .contact-info { position: static; }
+    .trust-bar-item { border-right: none; }
+    section { padding: 4rem 0; }
+  }
+  @media (max-width: 560px) {
+    .services-grid, .testimonials-grid, .process-grid, .trust-bar-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; gap: 0; }
+    .form-card, .contact-info { padding: 1.8rem; }
+    .topbar-right { gap: 1rem; }
+    .topbar-right span { display: none; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .hero-card { left: 1rem; right: 1rem; bottom: -1rem; }
+    .hero-card-top { right: 0.5rem; }
+    h1 { font-size: 2rem; }
+  }
+
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="container topbar-inner">
+    <div class="topbar-left">
+      <span class="dot"></span>
+      <span>Disponible aujourd'hui · Dépannage 7j/7</span>
+    </div>
+    <div class="topbar-right">
+      <a href="mailto:plb14000@yahoo.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <span>plb14000@yahoo.com</span>
+      </a>
+      <a href="tel:0633156490" style="color:#e67e22;font-weight:600;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        06 33 15 64 90
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header id="header">
+  <div class="container nav">
+    <a href="#" class="logo">
+      <img src="images/logo-plts.png" alt="PLTS Service - Plomberie Sanitaires Dépannage" class="logo-img">
+      <div class="logo-text">
+        <span class="name">PLTS Service</span>
+        <span class="sub">Plomberie · Sanitaires · Dépannage</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#services">Prestations</a></li>
+      <li><a href="#entreprise">L'entreprise</a></li>
+      <li><a href="#realisations">Réalisations</a></li>
+      <li><a href="#secteur">Secteur</a></li>
+      <li><a href="#avis">Avis</a></li>
+      <li><a href="#contact" class="btn btn-primary">Demander un devis</a></li>
+    </ul>
+    <button class="burger" aria-label="Menu" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <span class="hero-eyebrow"><span class="dot"></span>Plombier à Cabourg</span>
+      <h1>Votre artisan plombier <span>de confiance</span> sur la Côte Fleurie</h1>
+      <p class="hero-lede">Plomberie, sanitaires et dépannage urgent à Cabourg, Houlgate, Dives-sur-Mer et alentours. Une intervention rapide, un travail soigné, des devis clairs — pour vos résidences principales comme pour vos maisons de vacances.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">
+          Demander un devis gratuit
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <a href="tel:0633156490" class="btn btn-outline">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          06 33 15 64 90
+        </a>
+      </div>
+      <div class="hero-trust">
+        <div class="hero-trust-item">
+          <div class="hero-trust-icon" style="background: #fff5e6; color: #f5b301;"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          <div class="hero-trust-text"><strong>5,0/5 sur Google</strong><span>52 avis vérifiés</span></div>
+        </div>
+        <div class="hero-trust-item">
+          <div class="hero-trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <div class="hero-trust-text"><strong>Intervention rapide</strong><span>Sous 24h en semaine</span></div>
+        </div>
+        <div class="hero-trust-item">
+          <div class="hero-trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div class="hero-trust-text"><strong>Artisan local</strong><span>15 ans à Cabourg</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-image"></div>
+      <div class="hero-card-top">
+        <div class="num">7/7</div>
+        <div class="lbl">Dépannage</div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="hero-card-text"><strong>Devis gratuit</strong><span>Réponse sous 24h</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<section class="trust-bar" style="padding: 2rem 0;">
+  <div class="container">
+    <div class="trust-bar-grid">
+      <div class="trust-bar-item"><span class="num">15 ans</span><span class="lbl">D'expérience</span></div>
+      <div class="trust-bar-item"><span class="num">5,0/5</span><span class="lbl">52 avis Google</span></div>
+      <div class="trust-bar-item"><span class="num">7j/7</span><span class="lbl">Dépannage urgent</span></div>
+      <div class="trust-bar-item"><span class="num">30 km</span><span class="lbl">Rayon d'intervention</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="micro">Nos prestations</span>
+      <h2>Une expertise complète en plomberie et sanitaires</h2>
+      <p>De l'urgence à la rénovation, PLTS Service intervient sur l'ensemble des installations sanitaires et des réseaux d'eau, dans le respect des normes en vigueur.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+        <h3>Dépannage d'urgence</h3>
+        <p>Fuite, ballon d'eau chaude HS, canalisation bouchée, robinet cassé : intervention rapide pour limiter les dégâts.</p>
+        <ul class="check-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Disponible 7j/7</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Diagnostic clair avant travaux</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Réparation propre et durable</li>
+        </ul>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12h18M5 12V8a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v4M7 12v8M17 12v8M5 16h14"/></svg></div>
+        <h3>Pose de sanitaires</h3>
+        <p>Installation de WC, lavabos, douches à l'italienne, baignoires et robinetterie, dans les règles de l'art.</p>
+        <ul class="check-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Toutes marques et modèles</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Pose soignée et garantie</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Conseil sur les produits</li>
+        </ul>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="6" y="3" width="12" height="18" rx="2"/><line x1="6" y1="9" x2="18" y2="9"/><line x1="6" y1="15" x2="18" y2="15"/></svg></div>
+        <h3>Ballons d'eau chaude</h3>
+        <p>Pose, remplacement et entretien de ballons électriques, adaptés à votre foyer.</p>
+        <ul class="check-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Choix de l'appareil adapté</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Détartrage et entretien</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Mise aux normes</li>
+        </ul>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12c2 0 3-2 6-2s4 4 6 4 4-4 6-4"/><path d="M3 18c2 0 3-2 6-2s4 4 6 4 4-4 6-4"/></svg></div>
+        <h3>Réseaux & évacuations</h3>
+        <p>Modification ou création de réseaux d'alimentation et d'évacuation (cuivre, multicouche, PER).</p>
+        <ul class="check-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Neuf et rénovation</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Mise en conformité</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Étude technique préalable</li>
+        </ul>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2c2 4 6 7 6 12a6 6 0 0 1-12 0c0-5 4-8 6-12z"/><path d="M9 14c0 1.5 1.3 3 3 3"/></svg></div>
+        <h3>Pose d'adoucisseur</h3>
+        <p>Installation d'adoucisseurs d'eau pour protéger vos canalisations et électroménagers du calcaire.</p>
+        <ul class="check-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Choix de l'appareil adapté</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Raccordement cuivre soigné</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Vannes by-pass intégrées</li>
+        </ul>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+        <h3>Résidences secondaires</h3>
+        <p>Mise en eau au printemps, hivernage à l'automne, vérifications entre deux séjours : un référent dédié.</p>
+        <ul class="check-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Service à distance possible</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Compte rendu après visite</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Coordination avec gardien</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="entreprise">
+  <div class="container about-grid">
+    <div class="about-visual reveal" style="position:relative;">
+      <div class="about-image-deco"></div>
+      <div class="about-image">
+        <span class="about-image-tag">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Réalisation PLTS Service
+        </span>
+      </div>
+    </div>
+    <div class="about-content reveal">
+      <span class="micro">L'entreprise</span>
+      <h2 style="margin-top:1rem;">Un artisan local au service des particuliers depuis Cabourg</h2>
+      <p>Établie au cœur de Cabourg, PLTS Service est dirigée par Thomas Scheers, artisan plombier fort de 15 ans d'expérience. L'entreprise intervient sur l'ensemble du littoral du Calvados pour la plomberie, les sanitaires, le dépannage en urgence et la rénovation complète de salles de bain.</p>
+      <p>Notre approche est simple : écouter le besoin, diagnostiquer avant de chiffrer, intervenir proprement, tenir les délais. Pour les propriétaires de résidences secondaires, nous proposons un suivi régulier et savons gérer un chantier en votre absence — comme en témoignent nos clients.</p>
+      <div class="commitments">
+        <div class="commitment">
+          <div class="commitment-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+          <div>
+            <h4>Devis détaillés et gratuits</h4>
+            <p>Chiffrage clair, sans engagement, avec le détail des fournitures et de la main-d'œuvre.</p>
+          </div>
+        </div>
+        <div class="commitment">
+          <div class="commitment-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <div>
+            <h4>Engagement sur les délais</h4>
+            <p>Une date d'intervention annoncée est une date tenue. Pour les urgences, intervention sous 24h.</p>
+          </div>
+        </div>
+        <div class="commitment">
+          <div class="commitment-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div>
+            <h4>Travail garanti</h4>
+            <p>Toutes les interventions sont garanties. En cas de souci, nous revenons sans frais supplémentaires.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RÉALISATIONS -->
+<section class="realisations" id="realisations">
+  <div class="container">
+    <div class="section-head reveal realisations-intro">
+      <span class="micro">Nos réalisations</span>
+      <h2>Avant / après : la transformation en images</h2>
+      <p>Au-delà des avis, le travail parle de lui-même. Voici quelques chantiers récents — depuis les saignées et le tracé des réseaux jusqu'au rendu final.</p>
+    </div>
+
+    <!-- Onglets de sélection -->
+    <div class="ba-tabs reveal">
+      <button class="ba-tab active" data-target="ba-1">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+        Salle de bain sous combles
+      </button>
+      <button class="ba-tab" data-target="ba-2">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="3" width="12" height="18" rx="2"/><line x1="6" y1="9" x2="18" y2="9"/></svg>
+        Salle d'eau & chauffe-eau
+      </button>
+      <button class="ba-tab" data-target="ba-4">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7"/><path d="M5 8v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8"/><line x1="9" y1="22" x2="9" y2="12"/></svg>
+        Rénovation sous combles
+      </button>
+      <button class="ba-tab" data-target="ba-3">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12c2 0 3-2 6-2s4 4 6 4 4-4 6-4"/><path d="M3 18c2 0 3-2 6-2s4 4 6 4 4-4 6-4"/></svg>
+        Pose d'adoucisseur
+      </button>
+    </div>
+
+    <!-- CHANTIER 1 — Salle de bain sous combles -->
+    <div class="ba-card active reveal" id="ba-1">
+      <div class="ba-card-header">
+        <div>
+          <h3>Rénovation complète de salle de bain</h3>
+          <p>Maison sous combles · finition marbre & douche italienne</p>
+        </div>
+        <span class="ba-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Côte Fleurie
+        </span>
+      </div>
+      <div class="ba-grid">
+        <div class="ba-side">
+          <span class="ba-label ba-label-before">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="11 17 6 12 11 7"/><polyline points="18 17 13 12 18 7"/></svg>
+            Avant
+          </span>
+          <img src="images/realisation-avant.jpg" alt="Salle de bain avant rénovation : tracé des réseaux et saignées au mur" loading="lazy">
+        </div>
+        <div class="ba-side">
+          <span class="ba-label ba-label-after">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Après
+          </span>
+          <img src="images/realisation-apres.jpg" alt="Salle de bain après rénovation : finition marbre, douche italienne et meuble vasque" loading="lazy">
+        </div>
+        <div class="ba-divider"></div>
+        <div class="ba-arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>
+      </div>
+      <div class="ba-card-footer">
+        <div class="ba-features">
+          <div class="ba-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Réseaux cuivre</strong> tracés et soudés</span></div>
+          <div class="ba-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Douche à l'italienne</strong> sur mesure</span></div>
+          <div class="ba-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Carrelage marbre</strong> mural</span></div>
+          <div class="ba-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Meuble vasque</strong> & robinetterie</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CHANTIER 2 — Salle d'eau & chauffe-eau -->
+    <div class="ba-card reveal" id="ba-2">
+      <div class="ba-card-header">
+        <div>
+          <h3>Création d'une salle d'eau avec chauffe-eau</h3>
+          <p>Reprise complète des réseaux d'alimentation et d'évacuation</p>
+        </div>
+        <span class="ba-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Côte Fleurie
+        </span>
+      </div>
+      <div class="ba-grid">
+        <div class="ba-side">
+          <span class="ba-label ba-label-before">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="11 17 6 12 11 7"/><polyline points="18 17 13 12 18 7"/></svg>
+            Avant
+          </span>
+          <img src="images/sdb2-avant.jpg" alt="Pièce avant transformation : murs nus avec tracé des réseaux cuivre" loading="lazy">
+        </div>
+        <div class="ba-side">
+          <span class="ba-label ba-label-after">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Après
+          </span>
+          <img src="images/sdb2-apres.jpg" alt="Salle d'eau finie : douche, meuble vasque, WC et chauffe-eau apparent" loading="lazy">
+        </div>
+        <div class="ba-divider"></div>
+        <div class="ba-arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>
+      </div>
+      <div class="ba-card-footer">
+        <div class="ba-features">
+          <div class="ba-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Chauffe-eau</strong> électrique mural</span></div>
+          <div class="ba-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Cabine de douche</strong> verre</span></div>
+          <div class="ba-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span><strong>WC suspendu</strong> & vasque</span></div>
+          <div class="ba-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Réseau cuivre</strong> apparent soigné</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CHANTIER 4 — Rénovation sous combles -->
+    <div class="ba-card reveal" id="ba-4">
+      <div class="ba-card-header">
+        <div>
+          <h3>Rénovation d'une salle d'eau sous combles</h3>
+          <p>Transformation complète d'un espace vétuste en salle d'eau moderne et lumineuse</p>
+        </div>
+        <span class="ba-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Côte Fleurie
+        </span>
+      </div>
+      <div class="ba-grid">
+        <div class="ba-side">
+          <span class="ba-label ba-label-before">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="11 17 6 12 11 7"/><polyline points="18 17 13 12 18 7"/></svg>
+            Avant
+          </span>
+          <img src="images/sdb3-avant.jpg" alt="Salle d'eau vétuste sous combles avant rénovation : ancien carrelage et installations à reprendre" loading="lazy">
+        </div>
+        <div class="ba-side">
+          <span class="ba-label ba-label-after">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Après
+          </span>
+          <img src="images/sdb3-apres.jpg" alt="Salle d'eau rénovée : carrelage marbre, meuble vasque chêne, WC neuf et poutres apparentes mises en valeur" loading="lazy">
+        </div>
+        <div class="ba-divider"></div>
+        <div class="ba-arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>
+      </div>
+      <div class="ba-card-footer">
+        <div class="ba-features">
+          <div class="ba-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Carrelage marbre</strong> du sol au plafond</span></div>
+          <div class="ba-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Meuble vasque</strong> & miroir lumineux</span></div>
+          <div class="ba-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span><strong>WC neuf</strong> & sèche-serviettes</span></div>
+          <div class="ba-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Poutres bois</strong> mises en valeur</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CHANTIER 3 — Pose d'adoucisseur -->
+    <div class="ba-card reveal" id="ba-3">
+      <div class="ba-card-header">
+        <div>
+          <h3>Pose d'un adoucisseur d'eau</h3>
+          <p>Raccordement sur arrivée d'eau principale en garage</p>
+        </div>
+        <span class="ba-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Côte Fleurie
+        </span>
+      </div>
+      <div class="ba-grid">
+        <div class="ba-side">
+          <span class="ba-label ba-label-before">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="11 17 6 12 11 7"/><polyline points="18 17 13 12 18 7"/></svg>
+            Avant
+          </span>
+          <img src="images/adoucisseur-avant.jpg" alt="Arrivée d'eau avant pose de l'adoucisseur : compteur et conduite simple" loading="lazy">
+        </div>
+        <div class="ba-side">
+          <span class="ba-label ba-label-after">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Après
+          </span>
+          <img src="images/adoucisseur-apres.jpg" alt="Adoucisseur d'eau installé avec raccordement cuivre propre" loading="lazy">
+        </div>
+        <div class="ba-divider"></div>
+        <div class="ba-arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>
+      </div>
+      <div class="ba-card-footer">
+        <div class="ba-features">
+          <div class="ba-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Adoucisseur</strong> domestique</span></div>
+          <div class="ba-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Vannes by-pass</strong> intégrées</span></div>
+          <div class="ba-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Raccord cuivre</strong> propre</span></div>
+          <div class="ba-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Eau adoucie</strong> sur tout le foyer</span></div>
+        </div>
+      </div>
+    </div>
+
+    <p class="ba-counter reveal">Et bien d'autres chantiers — <strong>plus de 50 clients</strong> nous ont déjà fait confiance sur la Côte Fleurie.</p>
+  </div>
+</section>
+
+<!-- ZONE -->
+<section class="zone" id="secteur">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="micro">Secteur d'intervention</span>
+      <h2>Cabourg et toute la Côte Fleurie</h2>
+      <p>Implantés à Cabourg, nous intervenons sur un rayon d'environ 30 km, du littoral au Pays d'Auge.</p>
+    </div>
+    <div class="zone-grid">
+      <div class="zone-text reveal">
+        <h3>Communes desservies</h3>
+        <ul class="zone-cities">
+          <li class="main"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Cabourg</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/></svg>Houlgate</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/></svg>Dives-sur-Mer</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/></svg>Varaville</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/></svg>Merville-Franceville</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/></svg>Sallenelles</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/></svg>Bavent</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/></svg>Dozulé</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/></svg>Troarn</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/></svg>Beuvron-en-Auge</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/></svg>Villers-sur-Mer</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/></svg>Deauville</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/></svg>Trouville-sur-Mer</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/></svg>Et alentours</li>
+        </ul>
+      </div>
+      <div class="zone-map-wrap reveal">
+        <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=-0.35%2C49.20%2C0.20%2C49.40&amp;layer=mapnik&amp;marker=49.286%2C-0.121" loading="lazy"></iframe>
+        <div class="zone-map-overlay">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#e67e22" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div>
+            <strong>PLTS Service</strong>
+            <span>8 av. Thérèse Cassigneul, Cabourg</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS — preuve sociale Google + témoignages réels -->
+<section class="testimonials" id="avis">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="micro">Avis clients</span>
+      <h2>Ils nous font confiance</h2>
+      <p>La meilleure note possible sur Google, sur la durée et un grand nombre d'avis. Une preuve concrète de la satisfaction de nos clients à Cabourg et sur la Côte Fleurie.</p>
+    </div>
+
+    <div class="reviews-hero reveal">
+      <div class="reviews-score">
+        <div class="reviews-google-badge">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+            <path d="M5.84 14.1c-.22-.66-.35-1.36-.35-2.1s.13-1.44.35-2.1V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.61z" fill="#FBBC05"/>
+            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.83C6.71 7.31 9.14 5.38 12 5.38z" fill="#EA4335"/>
+          </svg>
+          Google · Avis vérifiés
+        </div>
+        <div class="reviews-big-number">5,0</div>
+        <div class="reviews-stars-big">★★★★★</div>
+        <p class="reviews-count">Note moyenne sur <strong>52 avis clients</strong></p>
+        <a href="https://share.google/BMzptIjuAZc68hIxM" target="_blank" rel="noopener" class="reviews-cta-google">
+          Lire les avis sur Google
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </a>
+      </div>
+
+      <div class="reviews-side">
+        <h3>Une note 5/5 obtenue chantier après chantier</h3>
+        <p>Obtenir cinq étoiles sur 52 avis ne tient pas du hasard. Cela traduit une exigence quotidienne, partagée par chaque client qui a pris le temps de noter notre intervention.</p>
+
+        <div class="reviews-points">
+          <div class="reviews-point">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <div>
+              <strong>Réactivité, même en urgence</strong>
+              <span>Intervention le jour même pour les pannes critiques, week-ends et jours fériés inclus.</span>
+            </div>
+          </div>
+          <div class="reviews-point">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <div>
+              <strong>Travail minutieux</strong>
+              <span>Finitions soignées, attention aux détails, chantier rendu impeccable.</span>
+            </div>
+          </div>
+          <div class="reviews-point">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <div>
+              <strong>Confiance en votre absence</strong>
+              <span>Travaux gérés à distance pour les résidences secondaires, même sans propriétaire sur place.</span>
+            </div>
+          </div>
+          <div class="reviews-point">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <div>
+              <strong>Conseil et pédagogie</strong>
+              <span>Diagnostic clair, options expliquées, pas de jargon inutile.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Témoignages détaillés -->
+    <div class="testimonials-grid reveal" style="margin-top:3rem;">
+      <div class="testimonial">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">« Je recommande cet artisan pour son professionnalisme. Nous avons apprécié sa réactivité suite à une fuite (salle d'eau). Le travail a été minutieux, nous avons retrouvé un bel espace douche fonctionnel. Nous pouvons le recommander en toute confiance. »</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">A</div>
+          <div>
+            <strong>André</strong>
+            <span>Cabourg, Résidence Fleur Marine</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial testimonial-featured">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">« Parfait ! Très réactif, très professionnel et agréable. Suite à notre appel tôt dans la matinée pour une urgence sur notre ballon d'eau chaude, qui plus est le 31 décembre, jour du réveillon, il a répondu présent et est intervenu ce même jour dans l'après-midi. Un grand merci ! Nous gardons précieusement vos coordonnées. »</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">C</div>
+          <div>
+            <strong>Céline</strong>
+            <span>Urgence un 31 décembre</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">« Réfection complète d'une salle de bain (carrelage, douche, évier, chauffe-eau, toilettes…) parfaite ! De très bons conseils, prévenant et efficace. M. Scheers est fort sympathique et sérieux. Travaux réalisés en mon absence totale. »</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">A</div>
+          <div>
+            <strong>Allain</strong>
+            <span>Réfection complète, propriétaire absent</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="micro">Comment ça se passe</span>
+      <h2>Une intervention claire en 4 étapes</h2>
+      <p>De votre premier appel à la fin du chantier, une méthode rigoureuse pour ne jamais avoir de mauvaise surprise.</p>
+    </div>
+    <div class="process-grid">
+      <div class="process-step reveal"><div class="process-num">1</div><h4>Prise de contact</h4><p>Par téléphone ou via le formulaire. Nous prenons le temps de comprendre votre besoin.</p></div>
+      <div class="process-step reveal"><div class="process-num">2</div><h4>Diagnostic & devis</h4><p>Visite sur place si nécessaire, devis détaillé, gratuit et sans engagement.</p></div>
+      <div class="process-step reveal"><div class="process-num">3</div><h4>Intervention</h4><p>Date convenue, travail soigné, chantier laissé propre en fin de journée.</p></div>
+      <div class="process-step reveal"><div class="process-num">4</div><h4>Suivi & garantie</h4><p>Facture détaillée, garantie sur l'intervention, disponibilité pour toute question.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner" style="padding: 3rem 0;">
+  <div class="container cta-banner-grid">
+    <div>
+      <h2>Une urgence ? Un projet ?</h2>
+      <p>Contactez-nous pour un devis gratuit ou une intervention rapide.</p>
+    </div>
+    <div class="cta-banner-actions">
+      <a href="tel:0633156490" class="btn btn-primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        06 33 15 64 90
+      </a>
+      <a href="#contact" class="btn btn-outline">Demander un devis</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="micro">Nous contacter</span>
+      <h2>Une demande, une question, une urgence ?</h2>
+      <p>Pour un dépannage rapide, l'appel téléphonique reste la voie la plus directe. Pour un devis ou une demande détaillée, le formulaire ci-dessous fonctionne très bien.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <h3>Coordonnées</h3>
+        <p>Joignable 24h/24 et 7j/7 pour vos urgences plomberie et sanitaires.</p>
+        <div class="contact-block">
+          <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+          <div>
+            <span class="lbl">Téléphone</span>
+            <a href="tel:0633156490" class="phone">06 33 15 64 90</a>
+          </div>
+        </div>
+        <div class="contact-block">
+          <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div>
+            <span class="lbl">Email</span>
+            <a href="mailto:plb14000@yahoo.com">plb14000@yahoo.com</a>
+          </div>
+        </div>
+        <div class="contact-block">
+          <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div>
+            <span class="lbl">Adresse</span>
+            <span class="val">8, avenue Thérèse Cassigneul<br>14390 Cabourg</span>
+          </div>
+        </div>
+        <div class="contact-block">
+          <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <div>
+            <span class="lbl">Disponibilité</span>
+            <span class="val">Service 24/24 · 7j/7</span>
+          </div>
+        </div>
+        <div class="contact-urgent">
+          <strong>Urgence en cours ?</strong>
+          <span>Appelez directement, c'est plus rapide.</span>
+        </div>
+      </div>
+      <div class="form-card reveal">
+        <div class="form-card-head">
+          <h3>Demande de devis ou de contact</h3>
+          <p>Réponse sous 24 h ouvrées. Tous les champs marqués <span style="color:var(--orange)">*</span> sont obligatoires.</p>
+        </div>
+        <form id="contactForm" name="contact-plts" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" netlify>
+          <!-- Champs cachés requis par Netlify -->
+          <input type="hidden" name="form-name" value="contact-plts" />
+          <p style="display:none;">
+            <label>Ne pas remplir si vous êtes humain : <input name="bot-field" /></label>
+          </p>
+
+          <div class="form-row">
+            <div class="form-field"><label for="prenom">Prénom <span class="req">*</span></label><input type="text" id="prenom" name="prenom" required></div>
+            <div class="form-field"><label for="nom">Nom <span class="req">*</span></label><input type="text" id="nom" name="nom" required></div>
+          </div>
+          <div class="form-row">
+            <div class="form-field"><label for="email">Email <span class="req">*</span></label><input type="email" id="email" name="email" required></div>
+            <div class="form-field"><label for="tel">Téléphone <span class="req">*</span></label><input type="tel" id="tel" name="tel" required></div>
+          </div>
+          <div class="form-row">
+            <div class="form-field"><label for="ville">Commune d'intervention <span class="req">*</span></label><input type="text" id="ville" name="ville" placeholder="Cabourg, Houlgate, Dives…" required></div>
+            <div class="form-field">
+              <label for="type">Nature de la demande <span class="req">*</span></label>
+              <select id="type" name="type" required>
+                <option value="">— Choisir —</option>
+                <option>Dépannage urgent</option>
+                <option>Devis travaux</option>
+                <option>Pose de sanitaires</option>
+                <option>Ballon d'eau chaude</option>
+                <option>Pose d'adoucisseur</option>
+                <option>Suivi résidence secondaire</option>
+                <option>Autre demande</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="message">Votre message <span class="req">*</span></label>
+            <textarea id="message" name="message" placeholder="Décrivez votre besoin, l'urgence éventuelle, vos disponibilités…" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary form-submit">
+            Envoyer ma demande
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+          <p class="form-rgpd">Vos informations sont uniquement utilisées pour le traitement de votre demande et ne sont jamais transmises à des tiers.</p>
+        </form>
+        <div class="form-success" id="formSuccess">
+          <div class="form-success-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <h3>Message bien reçu</h3>
+          <p>Nous revenons vers vous sous 24 h ouvrées.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo">
+          <img src="images/logo-plts.png" alt="PLTS Service" class="logo-img logo-img-footer">
+          <div class="logo-text">
+            <span class="name">PLTS Service</span>
+            <span class="sub">Plomberie · Sanitaires</span>
+          </div>
+        </a>
+        <p>Plombier à Cabourg. Dépannage urgent 7j/7, pose et rénovation sur la Côte Fleurie et le Pays d'Auge.</p>
+        <div class="footer-socials">
+          <a href="https://www.facebook.com/p/PLTS-Service-Plomberie-Chauffage-D%C3%A9pannage-100063508085151/" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.26h3.32l-.53 3.49h-2.79V24C19.61 23.1 24 18.1 24 12.07z"/></svg>
+          </a>
+          <a href="https://share.google/BMzptIjuAZc68hIxM" target="_blank" rel="noopener" aria-label="Google">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path d="M5.84 14.1c-.22-.66-.35-1.36-.35-2.1s.13-1.44.35-2.1V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.61z"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.83C6.71 7.31 9.14 5.38 12 5.38z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Prestations</h4>
+        <ul>
+          <li><a href="#services">Dépannage urgent</a></li>
+          <li><a href="#services">Pose de sanitaires</a></li>
+          <li><a href="#services">Ballons d'eau chaude</a></li>
+          <li><a href="#services">Réseaux & évacuations</a></li>
+          <li><a href="#services">Adoucisseurs d'eau</a></li>
+          <li><a href="#services">Résidences secondaires</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#entreprise">L'entreprise</a></li>
+          <li><a href="#realisations">Nos réalisations</a></li>
+          <li><a href="#secteur">Secteur d'intervention</a></li>
+          <li><a href="#avis">Avis clients</a></li>
+          <li><a href="#contact">Demander un devis</a></li>
+          <li><a href="https://www.pagesjaunes.fr/pros/60541331" target="_blank" rel="noopener">Pages Jaunes</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:0633156490">06 33 15 64 90</a></li>
+          <li><a href="mailto:plb14000@yahoo.com">plb14000@yahoo.com</a></li>
+          <li>8, av. Thérèse Cassigneul</li>
+          <li>14390 Cabourg</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 PLTS Service · Tous droits réservés</div>
+      <div class="footer-bottom-links">
+        <a href="#">Mentions légales</a>
+        <a href="#">Politique de confidentialité</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a href="tel:0633156490" class="floating-phone" aria-label="Appeler">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+</a>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+  }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  window.addEventListener('scroll', () => {
+    document.getElementById('header').classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // Switch entre onglets de réalisations
+  document.querySelectorAll('.ba-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      const targetId = tab.getAttribute('data-target');
+      document.querySelectorAll('.ba-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.ba-card').forEach(c => c.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById(targetId).classList.add('active');
+    });
+  });
+
+  // Soumission du formulaire vers Netlify Forms (AJAX, sans rechargement)
+  const form = document.getElementById('contactForm');
+  const success = document.getElementById('formSuccess');
+  const submitBtn = form.querySelector('button[type="submit"]');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // État "envoi en cours"
+    const originalBtnContent = submitBtn.innerHTML;
+    submitBtn.disabled = true;
+    submitBtn.style.opacity = '0.7';
+    submitBtn.innerHTML = 'Envoi en cours…';
+
+    try {
+      const formData = new FormData(form);
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData).toString()
+      });
+
+      if (response.ok) {
+        // Succès : afficher le message de confirmation
+        form.style.display = 'none';
+        success.classList.add('active');
+      } else {
+        throw new Error('Erreur de soumission');
+      }
+    } catch (err) {
+      // En cas d'échec, on retombe sur le mailto pour ne perdre aucune demande
+      const data = new FormData(form);
+      const subject = encodeURIComponent(`Demande PLTS Service — ${data.get('type')} — ${data.get('ville')}`);
+      const body = encodeURIComponent(
+        `Prénom : ${data.get('prenom')}\n` +
+        `Nom : ${data.get('nom')}\n` +
+        `Email : ${data.get('email')}\n` +
+        `Téléphone : ${data.get('tel')}\n` +
+        `Commune : ${data.get('ville')}\n` +
+        `Nature : ${data.get('type')}\n\n` +
+        `Message :\n${data.get('message')}`
+      );
+      window.location.href = `mailto:plb14000@yahoo.com?subject=${subject}&body=${body}`;
+
+      // On restaure le bouton au cas où le mailto ne s'ouvre pas
+      submitBtn.disabled = false;
+      submitBtn.style.opacity = '1';
+      submitBtn.innerHTML = originalBtnContent;
+    }
+  });
+</script>
+
+</body>
+</html>
