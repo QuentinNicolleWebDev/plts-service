@@ -1327,6 +1327,21 @@
 </a>
 
 <script>
+  // Suivi des conversions Google Ads — appel sécurisé (no-op si gtag pas encore chargé)
+  function trackConversion(sendTo) {
+    if (typeof gtag === 'function') {
+      gtag('event', 'conversion', { 'send_to': sendTo });
+    }
+  }
+
+  // Conversion « Appeler » : écouteur délégué unique sur tous les liens tel:
+  // Ne bloque pas le comportement natif (l'appel se lance normalement).
+  document.addEventListener('click', (e) => {
+    if (e.target.closest('a[href^="tel:"]')) {
+      trackConversion('AW-626987103/4X76CPmQ-bgcEN-g_KoC');
+    }
+  });
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
   }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
@@ -1373,6 +1388,8 @@
         // Succès : afficher le message de confirmation
         form.style.display = 'none';
         success.classList.add('active');
+        // Conversion « Demande de devis » (branche succès uniquement)
+        trackConversion('AW-626987103/K82RCLbO4LgcEN-g_KoC');
       } else {
         throw new Error('Erreur de soumission');
       }
