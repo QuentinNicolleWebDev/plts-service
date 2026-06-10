@@ -1328,9 +1328,13 @@
 
 <script>
   // Suivi des conversions Google Ads — appel sécurisé (no-op si gtag pas encore chargé)
-  function trackConversion(sendTo) {
-    if (typeof gtag === 'function') {
-      gtag('event', 'conversion', { 'send_to': sendTo });
+  function trackConversion(sendTo, ga4Event) {
+    if (typeof gtag !== 'function') return;
+    // Conversion Google Ads
+    gtag('event', 'conversion', { 'send_to': sendTo });
+    // Même action remontée comme événement GA4 (scopé sur GA4 uniquement)
+    if (ga4Event) {
+      gtag('event', ga4Event, { 'send_to': 'G-DKG3EF4RH3' });
     }
   }
 
@@ -1338,7 +1342,7 @@
   // Ne bloque pas le comportement natif (l'appel se lance normalement).
   document.addEventListener('click', (e) => {
     if (e.target.closest('a[href^="tel:"]')) {
-      trackConversion('AW-626987103/4X76CPmQ-bgcEN-g_KoC');
+      trackConversion('AW-626987103/4X76CPmQ-bgcEN-g_KoC', 'contact_appel');
     }
   });
 
@@ -1389,7 +1393,7 @@
         form.style.display = 'none';
         success.classList.add('active');
         // Conversion « Demande de devis » (branche succès uniquement)
-        trackConversion('AW-626987103/K82RCLbO4LgcEN-g_KoC');
+        trackConversion('AW-626987103/K82RCLbO4LgcEN-g_KoC', 'contact_devis');
       } else {
         throw new Error('Erreur de soumission');
       }
