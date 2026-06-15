@@ -37,6 +37,26 @@ exports.handler = async (event) => {
       return { statusCode: 500, body: "Configuration Brevo incomplète." };
     }
 
+    // Téléphone : toujours stocké en texte (attribut TELEPHONE, sans validation).
+    // En plus, si c'est un mobile français, on le met aussi au format
+    // international (+33…) dans l'attribut SMS de Brevo ; sinon on l'ignore,
+    // car un format invalide ferait échouer toute la création du contact.
+    const attributes = {
+      PRENOM: prenom,
+      NOM: nom,
+      TELEPHONE: tel,
+      VILLE: ville,
+      TYPE_DEMANDE: type,
+      MESSAGE: message,
+    };
+    const telClean = (tel || "").replace(/[\s.\-()]/g, "");
+    const mobileFr = telClean.match(/^0([67]\d{8})$/);
+    if (mobileFr) {
+      attributes.SMS = "+33" + mobileFr[1];
+    } else if (/^\+[1-9]\d{7,14}$/.test(telClean)) {
+      attributes.SMS = telClean;
+    }
+
     const response = await fetch("https://api.brevo.com/v3/contacts", {
       method: "POST",
       headers: {
@@ -47,14 +67,7 @@ exports.handler = async (event) => {
       body: JSON.stringify({
         email: email.trim().toLowerCase(),
         updateEnabled: true, // met à jour si le contact existe déjà
-        attributes: {
-          PRENOM: prenom,
-          NOM: nom,
-          SMS: tel,          // attribut téléphone standard de Brevo
-          VILLE: ville,
-          TYPE_DEMANDE: type,
-          MESSAGE: message,
-        },
+        attributes,
         listIds: [listId],
       }),
     });
