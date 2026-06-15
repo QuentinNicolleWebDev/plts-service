@@ -1,0 +1,10 @@
+# Configuration Netlify
+
+[build]
+  # Le site est statique : pas de commande de build, la racine est publiée telle quelle.
+  publish = "."
+  functions = "netlify/functions"
+
+[functions]
+  # Node 18+ fournit fetch() nativement, aucune dépendance requise.
+  node_bundler = "esbuild"
